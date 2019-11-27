@@ -81,7 +81,7 @@ Add the following lines to it:
 </activeProfiles>
 ```
 
-Apache Maven 3 and Java JDK 7/8 are prerequisites for building camunda BPM platform. Once you have setup Java and Maven, run
+Apache Maven 3 and Java JDK 8+ are prerequisites for building camunda BPM platform. Once you have setup Java and Maven, run
 
 ```
 mvn clean install
@@ -90,8 +90,8 @@ mvn clean install
 This will build all the modules that make up the camunda BPM platform but will not perform any integration testing. After the build is completed, you will find the distributions under
 
 ```
-distro/tomcat/distro/target     (Apache Tomcat 7 Distribution)
-distro/wildfly/distro/target   (WildFly AS Distribution)
+distro/tomcat/distro/target     (Apache Tomcat 9 Distribution)
+distro/wildlfy/distro/target   (Wildfly AS Distribution)
 ```
 
 Running Integration Tests
