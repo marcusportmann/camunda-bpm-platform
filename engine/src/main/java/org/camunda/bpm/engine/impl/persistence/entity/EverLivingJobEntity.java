@@ -75,8 +75,14 @@ public class EverLivingJobEntity extends JobEntity {
     }
 
     if (exceptionByteArrayIdToDelete != null) {
-      ByteArrayEntity byteArray = commandContext.getDbEntityManager().selectById(ByteArrayEntity.class, exceptionByteArrayIdToDelete);
-      commandContext.getDbEntityManager().delete(byteArray);
+      ByteArrayEntity byteArray = commandContext.getDbEntityManager()
+          .selectById(ByteArrayEntity.class, exceptionByteArrayIdToDelete);
+
+      // Avoid NPE when the job was reconfigured by another
+      // node in the meantime
+      if (byteArray != null) {
+        commandContext.getDbEntityManager().delete(byteArray);
+      }
     }
   }
 
